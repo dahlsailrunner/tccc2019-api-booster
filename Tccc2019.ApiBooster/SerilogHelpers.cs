@@ -30,6 +30,7 @@ namespace Tccc2019.ApiBooster
 
             var sqlConnectionString = config.GetConnectionString("LoggingDb");
             var elasticsearchUri = config.GetValue<string>("ElasticsearchUri");
+            
             loggerConfig
                 .ReadFrom.Configuration(config) // minimum levels defined per project in json files 
                 .Enrich.WithAspnetcoreHttpcontext(provider, AddCustomContextDetails)
@@ -59,7 +60,7 @@ namespace Tccc2019.ApiBooster
                 .WriteTo.Logger(lc => lc
                     .Filter.ByExcluding(Matching.WithProperty("ElapsedMilliseconds"))
                     .Filter.ByExcluding(Matching.WithProperty("UsageName"))
-                    .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("elasticsearchUri"))
+                    .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elasticsearchUri))
                         {
                             AutoRegisterTemplate = true,
                             AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv6,
