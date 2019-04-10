@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/dahlsailrunner/tccc2019-api-booster</PackageProjectUrl>
     <RepositoryUrl>https://github.com/dahlsailrunner/tccc2019-api-booster</RepositoryUrl>
     <PackageIconUrl>http://knowyourtoolset.com/wp-content/uploads/2015/03/cropped-favicon-96x96.png</PackageIconUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
