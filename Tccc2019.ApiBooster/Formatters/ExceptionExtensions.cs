@@ -11,7 +11,7 @@ namespace Tccc2019.ApiBooster.Formatters
             {
                 ExceptionType = ex.GetType().Name,
                 StackTrace = ex.StackTrace,
-                Message = ex.Message,
+                Message = ex.Message.Replace("\r\n", "   "),
                 Data = new List<CustomDictEntry>()
             };
 
@@ -45,7 +45,7 @@ namespace Tccc2019.ApiBooster.Formatters
         {
             while (true)
             {
-                if (e.InnerException == null) return e.Message;
+                if (e.InnerException == null) return e.Message.Replace("\r\n", "   ");
                 e = e.InnerException;
             }
         }
