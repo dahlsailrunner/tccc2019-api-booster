@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Serilog;
+using Serilog.Context;
 
 namespace Tccc2019.ApiBooster.Middleware
 {
@@ -40,8 +41,9 @@ namespace Tccc2019.ApiBooster.Middleware
             };
 
             opts.AddResponseDetails?.Invoke(context, exception, error);
-
-            Log.Error(exception, "An exception was caught in the API request pipeline");
+            
+            Log.ForContext("ErrorId", error.Id)
+               .Error(exception, "An exception was caught in the API request pipeline");
 
             var result = JsonConvert.SerializeObject(error);
             context.Response.ContentType = "application/json";
