@@ -2,11 +2,7 @@
 
 [![Build status](https://knowyourtoolset.visualstudio.com/TCCC-2019/_apis/build/status/TCCC-2019-CI)](https://knowyourtoolset.visualstudio.com/TCCC-2019/_build/latest?definitionId=13)
 
-# RealPage.Logging
-
-![BuildStatus](https://tfs.realpage.com/tfs/DefaultCollection/_apis/public/build/definitions/689bc146-c417-4893-b306-2909db3e86b7/2/badge)
-
-This solution contains helper libraries to make error and usage logging to the ELK
+This package contains a helper library to make error and usage logging to the ELK
 stack and SQL Server for performance entries easier for .NET Core web projects.  It 
 uses Serilog to do the logging.
 
